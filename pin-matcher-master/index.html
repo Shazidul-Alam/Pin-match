@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input id="Gendis" class="form-control" type="text" value="0" >
+                    <button id="Genbtn" class="generate-btn">Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input class="form-control" type="text" id="numdis" >
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div class="button" onclick="dis('7')" >7</div>
+                              <div class="button"  onclick="dis('8')" >8</div>
+                              <div class="button"  onclick="dis('9')" >9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div class="button"  onclick="dis('4')" >4</div>
+                              <div class="button"  onclick="dis('5')" >5</div>
+                              <div class="button"  onclick="dis('6')" >6</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div class="button"  onclick="dis('1')" >1</div>
+                              <div class="button"  onclick="dis('2')" >2</div>
+                              <div class="button"  onclick="dis('3')" >3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div class="button"  onclick="rmv()" ><</div>
+                                <div class="button"  onclick="dis('0')" >0</div>
+                                <div class="button"  onclick="clr()" >C</div>
+                            </div>
+                            <div>
+                                <button id="Sub" type="submit" class="submit-btn">Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notify-section">
+            <p id="No" style="display: none;" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="Yes" style="display: none;" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+    <script>
+         
+
+        document.getElementById('Genbtn').addEventListener('click',function(){
+        let get=document.getElementById('Gendis').value;
+        let make=parseInt(get);
+         get= Math.floor(1000 + Math.random() * 9000);
+        let show=document.getElementById('Gendis').value=get;       
+        })
+
+
+        
+        function dis(val) {
+     document.getElementById("numdis").value+=val;
+     }
+
+     function clr(){
+    document.getElementById("numdis").value = "";
+    }
+    function rmv(){
+        var rmv  = document.getElementById('numdis').value;
+    document.getElementById('numdis').value=rmv.substring(0,rmv.length -1);
+    }
+                 
+    document.getElementById('Sub').addEventListener('click',function(){
+            let GeNmatch=document.getElementById('Gendis').value;
+            let Nummatch=document.getElementById('numdis').value;
+
+           if(GeNmatch == Nummatch){
+            document.getElementById('Yes').style.display='block';
+           }
+           if(GeNmatch !== Nummatch){
+            document.getElementById('No').style.display='block';
+           }
+           
+           
+        })
+
+
+       
+       
+    </script>
+</body>
+</html>
