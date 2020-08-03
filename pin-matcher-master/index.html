@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button id="Sub" type="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left" id="tries">3 try left</p>
                             </div>
                     </div>
                 </div>
@@ -78,16 +78,29 @@
     document.getElementById('numdis').value=rmv.substring(0,rmv.length -1);
     }
                  
-    document.getElementById('Sub').addEventListener('click',function(){
+    document.getElementById('Sub').addEventListener('click', function(){
             let GeNmatch=document.getElementById('Gendis').value;
             let Nummatch=document.getElementById('numdis').value;
+             
+            if(GeNmatch == Nummatch){
+                document.getElementById('Yes').style.display='block';
+                document.getElementById('No').style.display='none';}
 
-           if(GeNmatch == Nummatch){
-            document.getElementById('Yes').style.display='block';
-           }
-           if(GeNmatch !== Nummatch){
-            document.getElementById('No').style.display='block';
-           }
+            if (GeNmatch != Nummatch) {
+                document.getElementById('tries').innerText= '2 try left'; 
+                document.getElementById('No').style.display='block';
+                document.getElementById("numdis").value = "";
+                document.getElementById('Yes').style.display='none';
+            }   
+
+            
+                
+
+             
+           
+           
+           
+           
            
            
         })
@@ -98,3 +111,4 @@
     </script>
 </body>
 </html>
+

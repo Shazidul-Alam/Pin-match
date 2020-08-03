@@ -26,8 +26,13 @@ body {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    transition: 0.6s;
 }
-.generate-btn:focus{
+.generate-btn:hover{
+  transform: scale(1.2);
+    background-color:#0fe078;
+    border: 8px solid #0de98d;
+    
     outline: none;
     box-shadow: none;
 }
@@ -75,6 +80,11 @@ vertical-align: middle;
 margin-right: -4px;
 border-radius: 10px;
 cursor: pointer;
+transition: 0.6s;
+}
+.button:hover{
+    transform: scale(1.2);
+    background:#b1cbee ;
 }
 .blink-me {
 color: #E0B612;
@@ -86,6 +96,11 @@ color: #E0B612;
     border-radius: 5px;
     background: #495BC3;
     color: #fff;
+    transition: 0.5s;
+}
+.submit-btn:hover{
+    background: rgb(252, 117, 117);
+    transform: scale(1.1123);
 }
 .notify {
     color: #fff;
